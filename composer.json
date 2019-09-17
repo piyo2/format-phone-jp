@@ -1,0 +1,26 @@
+{
+    "name": "sharapeco/phone-jp",
+    "description": "Split Japanese phone number.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sharapeco",
+            "email": "scin.ichi@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "sharapeco\\real\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^5.4 || ^7.0",
+        "patchwork/utf8": "^1.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "8",
+        "sharapeco/csv-parser": "^1.0"
+    }
+}
