@@ -1,8 +1,9 @@
 <?php
+
 namespace sharapeco\real;
 
-final class PhoneJP {
-
+final class PhoneJP
+{
 	// @const string 区切り文字
 	const Delimiter = '-';
 
@@ -10,7 +11,8 @@ final class PhoneJP {
 	private static $rules;
 
 	/// ルールを初期化する
-	private static function init() {
+	private static function init()
+	{
 		if (isset(self::$rules)) {
 			return;
 		}
@@ -22,7 +24,8 @@ final class PhoneJP {
 	/// @param $withPrefix: boolean
 	/// @param $delimiter: string
 	/// @return string
-	public static function split($tel, $withPrefix = true, $delimiter = self::Delimiter) {
+	public static function split($tel, $withPrefix = true, $delimiter = self::Delimiter)
+	{
 		$ndTel = preg_replace('/[ ,._-]/', '', $tel);
 		self::init();
 		foreach (self::$rules as $rule) {
@@ -37,5 +40,4 @@ final class PhoneJP {
 		}
 		return $ndTel; // nothing matched
 	}
-
 }

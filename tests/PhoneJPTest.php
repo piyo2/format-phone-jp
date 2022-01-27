@@ -1,13 +1,15 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
 use sharapeco\real\PhoneJP;
 
-final class PhoneJPTest extends TestCase {
-
+final class PhoneJPTest extends TestCase
+{
 	/**
 	 * @test
 	 */
-	public function testFreeDial() {
+	public function testFreeDial()
+	{
 		// ドモホルンリンクル
 		$this->assertEquals(
 			PhoneJP::split('0120444444'),
@@ -18,7 +20,8 @@ final class PhoneJPTest extends TestCase {
 	/**
 	 * @test
 	 */
-	public function testFreeDial2() {
+	public function testFreeDial2()
+	{
 		// 東京電力エナジーパートナー
 		$this->assertEquals(
 			PhoneJP::split('08001238800'),
@@ -29,7 +32,8 @@ final class PhoneJPTest extends TestCase {
 	/**
 	 * @test
 	 */
-	public function testNaviDial() {
+	public function testNaviDial()
+	{
 		// NTTコミュニケーションズ
 		$this->assertEquals(
 			PhoneJP::split('0570047999'),
@@ -40,7 +44,8 @@ final class PhoneJPTest extends TestCase {
 	/**
 	 * @test
 	 */
-	public function testQ2() {
+	public function testQ2()
+	{
 		// 架空
 		$this->assertEquals(
 			PhoneJP::split('0990123456'),
@@ -51,7 +56,8 @@ final class PhoneJPTest extends TestCase {
 	/**
 	 * @test
 	 */
-	public function testOther() {
+	public function testOther()
+	{
 		// うるおいの里
 		$this->assertEquals(
 			PhoneJP::split('05058463151'),
@@ -62,7 +68,8 @@ final class PhoneJPTest extends TestCase {
 	/**
 	 * @test
 	 */
-	public function testArea4() {
+	public function testArea4()
+	{
 		// せたな町役場　大成総合支所
 		$this->assertEquals(
 			PhoneJP::split('0139845511'),
@@ -73,7 +80,8 @@ final class PhoneJPTest extends TestCase {
 	/**
 	 * @test
 	 */
-	public function testArea3() {
+	public function testArea3()
+	{
 		// せたな町役場　瀬棚総合支所
 		$this->assertEquals(
 			PhoneJP::split('0137873311'),
@@ -84,7 +92,8 @@ final class PhoneJPTest extends TestCase {
 	/**
 	 * @test
 	 */
-	public function testArea2() {
+	public function testArea2()
+	{
 		// 金沢市役所
 		$this->assertEquals(
 			PhoneJP::split('0762202111'),
@@ -95,7 +104,8 @@ final class PhoneJPTest extends TestCase {
 	/**
 	 * @test
 	 */
-	public function testArea1() {
+	public function testArea1()
+	{
 		// 大阪市役所
 		$this->assertEquals(
 			PhoneJP::split('0643017285'),
@@ -106,7 +116,8 @@ final class PhoneJPTest extends TestCase {
 	/**
 	 * @test
 	 */
-	public function testNoPrefixInput() {
+	public function testNoPrefixInput()
+	{
 		// 金沢市役所
 		$this->assertEquals(
 			PhoneJP::split('762202111'),
@@ -117,7 +128,8 @@ final class PhoneJPTest extends TestCase {
 	/**
 	 * @test
 	 */
-	public function testNoPrefixOutput() {
+	public function testNoPrefixOutput()
+	{
 		// 金沢市役所
 		$this->assertEquals(
 			PhoneJP::split('0762202111', false),
@@ -128,12 +140,12 @@ final class PhoneJPTest extends TestCase {
 	/**
 	 * @test
 	 */
-	public function testDelimiter() {
+	public function testDelimiter()
+	{
 		// 金沢市役所
 		$this->assertEquals(
 			PhoneJP::split('0762202111', true, ' '),
 			'076 220 2111'
 		);
 	}
-
 }
