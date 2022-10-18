@@ -53,4 +53,4 @@ $f->format('+81120444444'); // => '+81-120-444-444'
 
 ## Data source
 
-- [総務省｜電気通信番号制度｜市外局番の一覧](http://www.soumu.go.jp/main_sosiki/joho_tsusin/top/tel_number/shigai_list.html) (2021-10-01)
+- [総務省｜電気通信番号制度｜市外局番の一覧](http://www.soumu.go.jp/main_sosiki/joho_tsusin/top/tel_number/shigai_list.html) (2022-03-01)
