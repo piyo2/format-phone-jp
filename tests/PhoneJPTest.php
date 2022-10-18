@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use sharapeco\real\PhoneJP;
+use piyo2\format\PhoneJP;
 
 final class PhoneJPTest extends TestCase
 {

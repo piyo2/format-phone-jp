@@ -5,7 +5,7 @@ Split Japanese phone number.
 ## Usage
 
 ```PHP
-use sharapeco\real\PhoneJP;
+use piyo2\format\PhoneJP;
 
 // Basic
 PhoneJP::split('0120444444'); // => '0120-444-444'

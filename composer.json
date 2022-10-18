@@ -1,18 +1,18 @@
 {
-    "name": "sharapeco/phone-jp",
+    "name": "piyo2/format-phone-jp",
     "description": "Split Japanese phone number.",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "sharapeco",
+            "name": "Shinichiro Yabu",
             "email": "scin.ichi@gmail.com"
         }
     ],
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "sharapeco\\real\\": "src/"
+            "piyo2\\format\\": "src/"
         }
     },
     "require": {

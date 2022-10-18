@@ -1,6 +1,6 @@
 <?php
 
-namespace sharapeco\real;
+namespace piyo2\format;
 
 final class PhoneJP
 {
@@ -15,7 +15,7 @@ final class PhoneJP
 	 *
 	 * @return void
 	 */
-	private static function init()
+	private static function init(): void
 	{
 		if (isset(self::$rules)) {
 			return;
@@ -26,18 +26,18 @@ final class PhoneJP
 	/**
 	 * 市外局番-局番-番号 に分割する
 	 *
-	 * @param string $tel
+	 * @param string $phoneNumber
 	 * @param bool $withPrefix
 	 * @param string $delimiter
 	 * @return string
 	 */
-	public static function split($tel, $withPrefix = true, $delimiter = self::Delimiter)
+	public static function split(string $phoneNumber, bool $withPrefix = true, string $delimiter = self::Delimiter): string
 	{
-		$ndTel = preg_replace('/[ ,._-]/', '', $tel);
+		$digits = preg_replace('/[^0-9#*]/', '', $phoneNumber);
 		self::init();
 		foreach (self::$rules as $rule) {
 			$re = '/\\A0?' . $rule . '\\z/';
-			if (preg_match($re, $ndTel, $m)) {
+			if (preg_match($re, $digits, $m)) {
 				return implode($delimiter, [
 					($withPrefix ? '0' : '') . $m[1],
 					$m[2],
@@ -45,6 +45,6 @@ final class PhoneJP
 				]);
 			}
 		}
-		return $ndTel; // nothing matched
+		return $digits; // nothing matched
 	}
 }
