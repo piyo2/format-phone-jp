@@ -1,23 +1,54 @@
 # PhoneJP
 
-Split Japanese phone number.
+Japanese phone number validator/formatter.
 
 ## Usage
 
-```PHP
+### Basic
+
+```php
 use piyo2\format\PhoneJP;
 
-// Basic
-PhoneJP::split('0120444444'); // => '0120-444-444'
+$f = new PhoneJP();
 
-// Without zero prefix input
-PhoneJP::split('120444444'); // => '0120-444-444'
+// Valid number
+$f->isValid('0120444444'); // => true
+$f->format('0120444444'); // => '0120-444-444'
+$f->formatIfValid('0120444444'); // => '0120-444-444'
 
-// Without prefix output
-PhoneJP::split('0120444444', false); // => '120-444-444'
+// Invalid number
+$f->isValid('0127-12-3456'); // => false
+$f->format('0127-12-3456'); // => '0127-12-3456' (= input value)
+$f->formatIfValid('0127-12-3456'); // => null
+```
 
-// Set delimiter
-PhoneJP::split('0120444444', true, ' '); // => '0120 444 444'
+### Force prefix
+
+```php
+$f = new PhoneJP();
+
+$f->format('120444444'); // => '120-444-444'
+$f->format('0120444444'); // => '0120-444-444'
+$f->format('+81120444444'); // => '+81 120-444-444'
+
+$f->setPrefixMode(PhoneJP::PREFIX_FORCE_DOMESTIC);
+$f->format('120444444'); // => '0120-444-444'
+
+$f->setPrefixMode(PhoneJP::PREFIX_FORCE_COUNTRY);
+$f->format('120444444'); // => '+81 120-444-444'
+```
+
+### Set delimiter
+
+```php
+$f = new PhoneJP();
+
+$f->setDelimiter(' ');
+$f->format('0120444444'); // => '0120 444 444'
+
+$f->setDelimiter('-');
+$f->setCountryPrefixDelimiter('-');
+$f->format('+81120444444'); // => '+81-120-444-444'
 ```
 
 ## Data source
