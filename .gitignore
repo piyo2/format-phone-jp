@@ -1,3 +1,4 @@
 /.editorconfig
 /vendor
+/var
 .phpunit.result.cache
