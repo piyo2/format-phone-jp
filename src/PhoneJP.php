@@ -76,7 +76,7 @@ class PhoneJP
 	 * @param string $phoneNumber
 	 * @return boolean
 	 */
-	public function isValid(string $phoneNumber): bool
+	public function validate(string $phoneNumber): bool
 	{
 		return $this->formatIfValid($phoneNumber) !== null;
 	}

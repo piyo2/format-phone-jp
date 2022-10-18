@@ -12,12 +12,12 @@ use piyo2\format\PhoneJP;
 $f = new PhoneJP();
 
 // Valid number
-$f->isValid('0120444444'); // => true
+$f->validate('0120444444'); // => true
 $f->format('0120444444'); // => '0120-444-444'
 $f->formatIfValid('0120444444'); // => '0120-444-444'
 
 // Invalid number
-$f->isValid('0127-12-3456'); // => false
+$f->validate('0127-12-3456'); // => false
 $f->format('0127-12-3456'); // => '0127-12-3456' (= input value)
 $f->formatIfValid('0127-12-3456'); // => null
 ```
